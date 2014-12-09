@@ -1,0 +1,11 @@
+﻿
+#logo {
+    background:url(themes/images/logo.png);
+    background-repeat:no-repeat ;
+    height:200px;
+    
+    }
+    #backimage {
+    background:url(Epic\themes\images\back.png)  ;
+    height:400px;
+    }

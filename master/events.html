@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="themes/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+    
+    
+    <style  type="text/css">
+        p {
+            text-align:left;
+            
+        }
+
+        .auto-style1 {
+            text-decoration: underline;
+            color: #006600;
+        }
+        .auto-style2 {
+            text-decoration: underline;
+            color: #0000CC;
+        }
+
+        .auto-style3 {
+            color: #FFFFFF;
+        }
+         #backimage {
+    background:url(themes/images/back.png);
+    background-repeat:repeat ;
+    height: 560px;
+    
+    }
+        #content {
+        background-color:white;
+
+        }
+    </style>
+    <script type="text/javascript" >
+        $(document).ready(function () {
+             $.mobile.loading("show");
+            setTimeout(function(){
+                $("#mainframe").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago");
+                $("#recuringFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_7dmcprevhuqs32kh0jfo96p2lo%40group.calendar.google.com&color=%23125A12&ctz=America%2FChicago");
+                $("#committesFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_mu6j13bn74j4ija5ujl2m19014%40group.calendar.google.com&color=%236B3304&ctz=America%2FChicago");
+                $.mobile.loading("hide");
+            }, 500);
+        });
+
+        
+    </script>
+</head>
+<body>
+    <div data-role="page" id="backimage">
+    <div data-role="header">
+    <a data-ajax="false" href="default.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+    <h1>Events</h1>
+    
+  </div>
+        <div data-role="main" class="ui-content" >
+            <div id="content">
+                <div data-role="tabs" id="tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#Main" data-ajax="false" class="ui-btn-active" >Main</a></li>
+                    <li><a href="#Recurring" data-ajax="false" class="ui-btn" >Recurring</a></li>
+                    <li><a href="#Committees" data-ajax="false" class="ui-btn" >Committees</a></li>
+                </ul>
+            </div>
+            <div id="Main" class="ui-content">
+                <iframe id="mainframe" src="about:blank" style=" border-width:0; " width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+
+            </div>
+                    <div id="Recurring" class="ui-content">
+                <iframe id="recuringFrame" src="about:blank" style=" border-width:0 " width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div id="Committees" class="ui-content">
+                <iframe id="committesFrame" src="about:blank" style=" border-width:0 " width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+
+            </div>
+        
+        </div>
+  </div>
+</body>
+</html>

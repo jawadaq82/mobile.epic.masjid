@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="themes/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+  <script type="text/javascript" >
+
+      var cookieName = 'st';
+      var salatJson;
+      jQuery(document).ready(function () {
+
+         // document.domain = 'Jawad.com';
+         // alert(document.domain);
+
+         
+          var currentMonth = (new Date).getMonth() + 1;
+          var yearName = (new Date).getFullYear();
+          //alert(GetMonthName(currentMonth));
+          $('#headingName').text(GetMonthName(currentMonth) + ' ' + yearName);
+
+          checkCookiee();
+         
+      });
+
+
+      function checkCookiee() {
+         // var userCookie = getCookie("st");
+          //if (userCookie != "") {
+              GetCookieData(cookieName);
+          //}
+          //else {
+            //  alert("Please check your internet connection and try again");
+          //}
+      }
+
+
+      
+
+      function GetTable(jsonString) {
+          var jsonObj = jQuery.parseJSON(jsonString);
+          var tr;
+          for (var j = 0; j < jsonObj.length; j++) {
+              //    var tr;
+              tr = jQuery('<tr/>');
+
+
+              if (jsonObj[j].d % 2 != 0) {
+                  tr.append("<td class='auto-style12'><strong>" + jsonObj[j].d + "<strong/></td>");
+                  tr.append("<td class='auto-style12'><span class='auto-style6'><strong>" + jsonObj[j].f1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].f + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style12'><strong>" + jsonObj[j].s + "</strong></td>");
+                  tr.append("<td class='auto-style12'><span class='auto-style6'><strong>" + jsonObj[j].z1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].z + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style12'><span class='auto-style6'><strong>" + jsonObj[j].a1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].a + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style12'><span class='auto-style6'><strong>" + jsonObj[j].m1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].m + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style12'><span class='auto-style6'><strong>" + jsonObj[j].i1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].i + "</strong></span><br /></td>");
+              }
+              else {
+                  tr.append("<td class='auto-style10'><strong>" + jsonObj[j].d + "<strong/></td>");
+                  tr.append("<td class='auto-style11'><span class='auto-style6'><strong>" + jsonObj[j].f1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].f + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style11'><strong>" + jsonObj[j].s + "</strong></td>");
+                  tr.append("<td class='auto-style11'><span class='auto-style6'><strong>" + jsonObj[j].z1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].z + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style11'><span class='auto-style6'><strong>" + jsonObj[j].a1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].a + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style11'><span class='auto-style6'><strong>" + jsonObj[j].m1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].m + "</strong></span><br /></td>");
+                  tr.append("<td class='auto-style11'><span class='auto-style6'><strong>" + jsonObj[j].i1 + "</strong></span><br/><span class='auto-style4'><strong>" + jsonObj[j].i + "</strong></span><br /></td>");
+              }
+
+
+              jQuery('table').append(tr);
+              //alert(jsonObj[i].o);
+
+          }
+
+      }
+
+      if (!String.prototype.replaceAll) {
+          String.prototype.replaceAll = function (sourceChar, newChar) {
+              var locName = this;
+              for (var i = 0; i <= this.split(sourceChar).length; i++) {
+                  locName = locName.replace(sourceChar, newChar);
+              }
+              return locName;
+          }
+      }
+
+      function GetCookieData(cokieName) {
+          var cookieData = localStorage.getItem("st");
+          if (cookieData!=null)
+          {
+          var afterReplace = cookieData.replaceAll("\'", "\"")
+              .replaceAll("o:", "\"o\":")
+              .replaceAll("d:", "\"d\":")
+              .replaceAll("f1:", "\"f1\":")
+              .replaceAll("f:", "\"f\":")
+              .replaceAll("s:", "\"s\":")
+              .replaceAll("z1:", "\"z1\":")
+              .replaceAll("z:", "\"z\":")
+              .replaceAll("a1:", "\"a1\":")
+              .replaceAll("a:", "\"a\":")
+              .replaceAll("m1:", "\"m1\":")
+              .replaceAll("m:", "\"m\":")
+              .replaceAll("i1:", "\"i1\":")
+              .replaceAll("i:", "\"i\":");
+          //alert(afterReplace);
+          GetTable(afterReplace);
+          }
+          else
+          {
+              jQuery('.lblError').html("Please check your internet connection and try again.");
+          }
+          
+      }
+
+      
+      function GetMonthName(monthNumber) {
+          var months = ['January', 'February', 'March', 'April', 'May', 'June',
+          'July', 'August', 'September', 'October', 'November', 'December'];
+          return months[monthNumber - 1];
+      }
+
+      function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') c = c.substring(1);
+              if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+          }
+          return "";
+      }
+
+      function SetSalatTime() {
+          var month = 0;
+          month = (new Date).getMonth() + 1;
+          var url = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=' + month;
+          jQuery.noConflict();
+          jQuery.get(url, function (response) {
+              salatJson = response;
+              salatJson = salatJson.replaceAll("month", "o")
+              .replaceAll("January", "1")
+              .replaceAll(":\"1\",", ":1,")
+              .replaceAll("February", "2")
+              .replaceAll(":\"2\",", ":2,")
+              .replaceAll("March", "3")
+              .replaceAll(":\"3\",", ":3,")
+              .replaceAll("April", "4")
+              .replaceAll(":\"4\",", ":4,")
+              .replaceAll("May", "5")
+              .replaceAll(":\"5\",", ":5,")
+              .replaceAll("June", "6")
+              .replaceAll(":\"6\",", ":6,")
+              .replaceAll("July", "7")
+              .replaceAll(":\"7\",", ":7,")
+              .replaceAll("August", "8")
+              .replaceAll(":\"8\",", ":8,")
+              .replaceAll("September", "9")
+              .replaceAll(":\"9\",", ":9,")
+              .replaceAll("October", "10")
+              .replaceAll(":\"10\",", ":10,")
+              .replaceAll("November", "11")
+              .replaceAll(":\"11\",", ":11,")
+              .replaceAll("December", "12")
+              .replaceAll(":\"12\",", ":12,")
+              .replaceAll("day", "d")
+              .replaceAll("fajrBegin", "f1").replaceAll("fajr", "f")
+              .replaceAll("shuruq", "s")
+              .replaceAll("dhuhrBegin", "z1").replaceAll("dhuhr", "z")
+              .replaceAll("asrBegin", "a1").replaceAll("asr", "a")
+              .replaceAll("maghribBegin", "m1").replaceAll("maghrib", "m")
+              .replaceAll("ishaBegin", "i1").replaceAll("isha", "i")
+              .replaceAll("\r", "").replaceAll("\n", "").replaceAll("\r\n", "")
+              .replaceAll("\"", "\'")
+              .replaceAll("\'o\':", "o:")
+              .replaceAll("\'d\':", "d:")
+              .replaceAll("\'f1\':", "f1:")
+              .replaceAll("\'f\':", "f:")
+              .replaceAll("\'s\':", "s:")
+              .replaceAll("\'z1\':", "z1:")
+              .replaceAll("\'z\':", "z:")
+              .replaceAll("\'a1\':", "a1:")
+              .replaceAll("\'a\':", "a:")
+              .replaceAll("\'m1\':", "m1:")
+              .replaceAll("\'m\':", "m:")
+              .replaceAll("\'i1\':", "i1:")
+              .replaceAll("\'i\':", "i:");
+              localStorage.setItem(cookieName, salatJson);
+              alert("done");
+              //jQuery('.DIVcookie').html(salatJson);
+          });
+          return false;
+      }
+
+
+      function ClearStorage() {
+          localStorage.clear();
+      }
+
+      function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+          var expires = "expires=" + d.toUTCString();
+          document.cookie = cname + "=" + cvalue + "; " + expires;
+      }
+
+
+
+   </script>  
+      <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            text-align:center;
+          text-align:center;
+         
+          font-size :13px;
+
+        }
+        table, th, tr,td {
+        border:1px solid    white }
+
+        
+        .auto-style4 {
+            color: #666666;
+        }
+        .auto-style6 {
+            color: black ;
+            
+        }
+
+.lblError{
+    text-align:center;
+    color:white;
+
+}
+        
+
+        #backimage {
+    background:url(themes/images/back.png);
+    background-repeat:repeat  ;
+    
+    }
+        
+        .auto-style7 {
+         
+               color: #FFFFFF;
+               background-color:#666666;
+        }
+        .auto-style8 {
+            color: black;
+            background-color: #CCCCCC;
+        }
+        .auto-style9 {
+            color: #666666;
+            background-color: #FFFFFF;
+        }
+        
+        .auto-style10 {
+            font-size: 1em;
+            background-color: #FFFFFF;
+        }
+        .auto-style11 {
+            background-color: #FFFFFF;
+        }
+        
+        .auto-style12 {
+            background-color: #CCCCCC;
+        }
+        
+    </style>
+</head>
+<body>
+    <div data-role="page" id="pageone">
+    <div data-role="header">
+    <a data-ajax="false" href="default.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+    <h1>Iqamah / Adhan</h1>
+    
+  </div>
+        <div id="backimage">
+        <div data-role="main" class="ui-content" >
+        
+            
+        <h2 id="headingName" style="text-align: center; color:white "> </h2>
+    
+        <table cellspacing="0" class="auto-style1" >
+    <tr>
+        <td class="auto-style7">Day</td>
+                <td class="auto-style7">Fajr</td>
+                <td class="auto-style7">Sunrise</td>
+                <td class="auto-style7">Dhuhr</td>
+                <td class="auto-style7">Asr</td>
+                <td class="auto-style7">Maghrib</td>
+                <td class="auto-style7">Isha</td>
+    </tr>
+        <tr>
+                <td colspan="7" class="auto-style8"><strong>Adhan Time</strong></td>
+
+            </tr>
+        <tr>
+            <td colspan="7" class="auto-style9"><strong>Iqamah Time</strong></td>
+        </tr>
+</table>
+        <div class="lblError"></div>
+        
+        </div>
+            </div>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+    <link href="themes/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="Scripts/spl.js"></script>
+    <style type="text/css">
+        html, body {margin:0;padding:0;height:100%;}
+        #logo {
+            background: url(themes/images/logo.png);
+            background-repeat: no-repeat;
+            height: 180px;
+            width: 100%;
+        }
+
+        #backimage {
+             height:100vh;
+             height:100%;
+            background: url(themes/images/sp-back.png);
+            background-repeat: repeat;
+        }
+
+        #content {
+            border: 1px solid #DDDDDD;
+            height: 20px;
+            width: 100%;
+            position: fixed;
+            z-index: 1000;
+            margin-top: 130px;
+        }
+
+        #spa {
+            margin-top: 0px;
+        }
+
+        #social {
+            margin-top: -55px;
+        }
+    </style>
+
+</head>
+<body>
+    <div data-role="page" id="splash">
+        <div id="backimage">
+            <div>&nbsp;<br /></div>
+            <div data-role="main" class="ui-content">
+                <div id="spa">
+                    <div><br /></div>
+                    <div><br /></div>
+                    <div id="social" style="text-align:center;">
+                        <a href="#" onclick="window.location.href = 'default.html'">
+                            <img src="themes/images/sp-logo.png" class="ui-grid-b" style="width: 80%;" /></a>
+                    </div>
+                    <div style="text-align:center;">
+                    <a href="default.html">
+                        <img src="themes/images/sp-masjid.png" class="ui-grid-b" style="width: 80%;" /></a>
+                    </div>
+                    <div style="text-align:center;">
+                    <a href="default.html">
+                        <!--onclick="window.location.href = 'default.html'"-->
+                        <img src="themes/images/clogo.png" class="ui-grid-b" style="width: 80%;" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

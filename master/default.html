@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>East Plano Islamic Center</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="themes/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+<style type="text/css">
+    #logo {
+    background:url(themes/images/logo.png);
+    background-repeat:no-repeat ;
+    height:180px;
+    width:100%;
+    }
+    #backimage {
+    background:url(themes/images/back.png);
+    background-repeat:repeat  ;
+    
+    }
+
+       #content {
+      border: 1px solid #DDDDDD;
+        height: 20px;
+        width:100%;
+    position:relative ;
+    z-index:1000;
+    margin-top:130px;
+       }
+
+    #spa {
+        margin-top:10px;
+    }
+    #social {
+    margin-top:18px;
+    } 
+</style>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
+            $.get(urlString, function (response) {
+                $('#frame1').attr('src', 'https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago');
+                
+            }).error(function () {
+                
+                $('#content').hide();
+                //$('#frame1').attr('src', 'about:blank');
+                
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div data-role="page" id="backimage">
+        <div data-role="header" >
+        <img src="themes/images/logo.png" class="ui-grid-b" style="width:100% ; height:190px ;" />
+                
+            </div>
+        <div data-role="main" class="ui-content" >
+     
+                <div id="spa">   
+    <ul data-role="listview">
+      <li><a data-ajax="false"  href="iqamah.html" data-transition="slide"><img src="themes/images/iqamah.png"   alt="iqamah" class="ui-li-icon">Iqamah and Adhan</a></li>
+      
+      <li><a data-ajax="false" href="events.html" data-transition="fade"><img src="themes/images/annce.png" alt="Events" class="ui-li-icon">Events</a></li>
+      <li><a data-ajax="false" href="services.html" data-transition="fade"><img src="themes/images/Services.png" alt="Services" class="ui-li-icon">Services</a></li>
+      <li><a data-ajax="false" href="sponsors.html" data-transition="fade"><img src="themes/images/Sponsor.png" alt="Sponsor" class="ui-li-icon">Sponsors</a></li>
+      <li><a data-ajax="false" href="https://www.google.com/maps/place/East+Plano+Islamic+Center/@33.011024,-96.645885,17z/data=!3m1!4b1!4m2!3m1!1s0x864c1bebbaee9b59:0x89309c9ef62d50cc" data-transition="fade"><img src="themes/images/Direction.png" alt="Direction" class="ui-li-icon">Driving Direction</a></li>
+      <li><a data-ajax="false" href="https://www.epicmembers.org/(S(4l2ire55c2g2pqmdd5pzh2rj))/forms/onetimepayment.aspx" data-transition="fade"><img src="themes/images/Money.png" alt="Donation" class="ui-li-icon">Donations</a></li>
+      <li><a data-ajax="false" href="contact.html" data-transition="fade"><img src="themes/images/ContactUs.png" alt="Contact Us" class="ui-li-icon">Contact</a></li>
+    </ul>
+                    </div>
+            
+            <div id="social">
+            <center>
+        <a data-ajax="false" href="https://m.facebook.com/pages/East-Plano-Islamic-Center/365971163441306" target="_blank"><img src="themes/images/facebook.png" height="30" /></a>
+        <a data-ajax="false" href="https://mobile.twitter.com/epicmasjid" target="_blank"><img src="themes/images/twitter.png" height="30" /></a>
+        <a data-ajax="false" href="http://m.youtube.com/user/epicmasjid" target="_blank"><img src="themes/images/youtube.png" height="30"/></a>
+</center>
+                </div>
+  </div>
+    </div> 
+    <div id="content" >
+        <iframe id="frame1" src="about:blank" width="100%" height="85" frameborder="0" scrolling="no"></iframe>
+    </div>
+</body>
+</html>
