@@ -1,7 +1,7 @@
 $(document).on('pageinit', '#splash', function () { // the .on() method does require jQuery 1.7 + but this will allow you to have the contained code only run when the #splash page is initialized.
     SetSalatTime();
     setTimeout(function () {
-        window.location.href = "default.html";
+        window.location.href = "Menu.html";
         //  $.mobile.changePage("default.html", {transition:"slide"});
     }, 4000);
     

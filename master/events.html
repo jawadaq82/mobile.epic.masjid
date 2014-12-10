@@ -30,7 +30,7 @@
             color: #FFFFFF;
         }
          #backimage {
-    background:url(themes/images/back.png);
+    background:url(themes/images/sp-back.png);
     background-repeat:repeat ;
     height: 560px;
     
@@ -42,48 +42,32 @@
     </style>
     <script type="text/javascript" >
         $(document).ready(function () {
-            checkConnection();
-            $.mobile.loading("show");
-            setTimeout(function () {
-                $("#mainframe").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago");
-                $("#recuringFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_7dmcprevhuqs32kh0jfo96p2lo%40group.calendar.google.com&color=%23125A12&ctz=America%2FChicago");
-                $("#committesFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_mu6j13bn74j4ija5ujl2m19014%40group.calendar.google.com&color=%236B3304&ctz=America%2FChicago");
-                $.mobile.loading("hide");
-            }, 500);
+
+             var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
+             $.get(urlString, function (response) {
+                 $.mobile.loading("show");
+                 setTimeout(function () {
+                     $("#mainframe").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago");
+                     $("#recuringFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_7dmcprevhuqs32kh0jfo96p2lo%40group.calendar.google.com&color=%23125A12&ctz=America%2FChicago");
+                     $("#committesFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_mu6j13bn74j4ija5ujl2m19014%40group.calendar.google.com&color=%236B3304&ctz=America%2FChicago");
+                     $.mobile.loading("hide");
+                 }, 500);
+             }).error(function () {
+                 $("#mainframe").attr("src", "error_internet.html");
+                 $("#recuringFrame").attr("src", "error_internet.html");
+                 $("#committesFrame").attr("src", "error_internet.html");
+                 $.mobile.loading("hide");
+             });
+
         });
 
-        function checkConnection() {
-            var networkState = navigator.connection.type;
-
-            var states = {};
-            states[Connection.UNKNOWN] = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI] = 'WiFi connection';
-            states[Connection.CELL_2G] = 'Cell 2G connection';
-            states[Connection.CELL_3G] = 'Cell 3G connection';
-            states[Connection.CELL_4G] = 'Cell 4G connection';
-            states[Connection.CELL] = 'Cell generic connection';
-            states[Connection.NONE] = 'No network connection';
-
-            alert('Connection type: ' + states[networkState]);
-//            navigator.notification.alert(
-//                'Connection type: ' + states[networkState],  // message
-//                alertDismissed,         // callback
-//                'EPIC Masjid',            // title
-//                'Okay'                  // buttonName
-//            );
-        }
-
-//        function alertDismissed() {
-//            // do something
-//        }
-
+        
     </script>
 </head>
 <body>
     <div data-role="page" id="backimage">
     <div data-role="header">
-    <a data-ajax="false" href="default.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+    <a data-ajax="false" href="Menu.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
     <h1>Events</h1>
     
   </div>
