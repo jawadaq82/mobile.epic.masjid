@@ -18,7 +18,22 @@
             }).error(function () {
                 $('iframe.announ').hide();
             });
+        
+
+            $('.link').click(function () {
+                $.get(urlString, function (response) {
+                  //  window.open('http://www.google.com.pk/?as_qdr=all&gws_rd=cr&ei=MouJVMzXMce5UaTQgNAF', '_blank');
+                    //$('iframe.announ').attr('src', 'https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago');
+
+                }).error(function () {
+                    window.open('error_internet.html');
+                });  
+
+            });
+            
         });
+
+        
 
     </script>
 </head>
@@ -45,7 +60,7 @@
             
         <div class="epicMain">
             Epic Masjid<br/>
-            <a data-ajax="false"  href="https://m.facebook.com/pages/East-Plano-Islamic-Center/365971163441306" target="_blank"><img src="themes/images/facebook.png" height="30" /></a>
+            <a data-ajax="false" class="link" href="https://m.facebook.com/pages/East-Plano-Islamic-Center/365971163441306" target="_blank"><img src="themes/images/facebook.png" height="30" /></a>
             <a data-ajax="false" href="https://mobile.twitter.com/epicmasjid" target="_blank"><img src="themes/images/twitter.png" height="30" /></a>
             <a data-ajax="false" href="http://m.youtube.com/user/epicmasjid" target="_blank"><img src="themes/images/youtube.png" height="30"/></a>
         </div>
