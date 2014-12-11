@@ -25,6 +25,20 @@
         
         }
     </style>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
+             $('.link').click(function () {
+                 $.get(urlString, function (response) {
+                 }).error(function () {
+                     window.location.href = "error_internet.html";
+                 });
+             });
+         });
+    </script>
+
+
+
 </head>
 <body>
     <div data-role="page" id="pageone">
@@ -65,7 +79,7 @@
             
             <h2>Youth</h2>
               <a data-ajax="false" href="mailto:epicyouth@epicmasjid.org"  data-role="button">epicyouth@epicmasjid.org</a>
-            <a data-ajax="false" href="https://www.facebook.com/"  data-role="button" aria-valuetext="20" >Facebook</a>
+            <a data-ajax="false" class="link" href="https://www.facebook.com/TheEPICYouth"  data-role="button" aria-valuetext="20" >Facebook</a>
             <a data-ajax="false" href="tel:4692980469"  data-role="button">(469) 298-0469</a>
             
 

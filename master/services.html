@@ -17,6 +17,18 @@
             height: 490px;
         }
     </style>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
+             $('.link').click(function () {
+                 $.get(urlString, function (response) {
+                 }).error(function () {
+                     window.location.href = "error_internet.html";
+                 });
+             });
+         });
+    </script>
+
 </head>
 <body>
     <div data-role="page" id="backimage">
@@ -94,8 +106,8 @@
 <p>Rahma Funeral Home </p>
 			<a data-ajax="false" href="tel:8775262924"  data-role="button">Toll Free (877) 526-2924</a>
             <a data-ajax="false" href="tel:9723860383"  data-role="button">Call (972) 386 0383</a>
-            <a data-ajax="false" href="http://www.rahmafuneralhome.com/"  data-role="button">www.IFSNT.com</a>
-            <a data-ajax="false" href="http://maps.google.com/maps?ll=32.939843,-96.768998&z=14&t=m&hl=en-GB&gl=US&mapclient=embed&q=7810%20W%20Spring%20Valley%20Rd%20Dallas%2C%20TX%2075254%20USA"  data-role="button">Direction</a>
+            <a data-ajax="false" class="link" href="http://www.rahmafuneralhome.com/"  data-role="button">www.IFSNT.com</a>
+            <a data-ajax="false" class="link" href="http://maps.google.com/maps?ll=32.939843,-96.768998&z=14&t=m&hl=en-GB&gl=US&mapclient=embed&q=7810%20W%20Spring%20Valley%20Rd%20Dallas%2C%20TX%2075254%20USA"  data-role="button">Direction</a>
             
     </div>
         </div> 

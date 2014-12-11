@@ -26,7 +26,22 @@
             margin-right: 20px;
         }
     </style>
-    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
+
+            $('.link').click(function () {
+                $.get(urlString, function (response) {
+                   // alert("Hekki");
+                }).error(function () {
+                    window.location.href = "error_internet.html";
+                });
+            });
+
+        });
+
+    </script>
+
 
 </head>
 <body>
@@ -46,8 +61,8 @@
             
             <a data-ajax="false" href="tel:2162885457" data-transition="fade" data-role="button">Call (216)-288-5457</a>
             <a data-ajax="false" href="mailto:support@collabotive.com" data-transition="fade" data-role="button">support@collabotive.com</a>
-            <a data-ajax="false" href="http://collabotive.com/" target="_blank" data-transition="fade" data-role="button">Website</a>
-            <a data-ajax="false" target="_blank" href="https://www.google.com/maps/place/5821+Logan+Dr,+Plano,+TX+75094,+USA/@33.0080079,-96.620144,15z/data=!4m2!3m1!1s0x864c1b763169de11:0x2495aebdf7a4c611" data-role="button">Direction</a>
+            <a data-ajax="false" class="link" href="http://collabotive.com/" target="_blank" data-transition="fade" data-role="button">Website</a>
+            <a data-ajax="false" class="link" target="_blank" href="https://www.google.com/maps/place/5821+Logan+Dr,+Plano,+TX+75094,+USA/@33.0080079,-96.620144,15z/data=!4m2!3m1!1s0x864c1b763169de11:0x2495aebdf7a4c611" data-role="button">Direction</a>
     </div>
     </div>
     </div>
