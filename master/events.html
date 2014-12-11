@@ -42,13 +42,26 @@
     </style>
     <script type="text/javascript" >
         $(document).ready(function () {
-             $.mobile.loading("show");
-            setTimeout(function(){
-                $("#mainframe").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago");
-                $("#recuringFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_7dmcprevhuqs32kh0jfo96p2lo%40group.calendar.google.com&color=%23125A12&ctz=America%2FChicago");
-                $("#committesFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_mu6j13bn74j4ija5ujl2m19014%40group.calendar.google.com&color=%236B3304&ctz=America%2FChicago");
-                $.mobile.loading("hide");
-            }, 500);
+            var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
+            $.mobile.loading("show");
+            $.get(urlString, function (response) {
+                
+                setTimeout(function () {
+                    $("#mainframe").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago");
+                    $("#recuringFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_7dmcprevhuqs32kh0jfo96p2lo%40group.calendar.google.com&color=%23125A12&ctz=America%2FChicago");
+                    $("#committesFrame").attr("src", "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_mu6j13bn74j4ija5ujl2m19014%40group.calendar.google.com&color=%236B3304&ctz=America%2FChicago");
+                    $.mobile.loading("hide");
+                }, 500);
+
+                //$('iframe.announ').attr('src', 'https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago');
+            }).error(function () {
+                $("#mainframe").attr("src", "error_internet.html");
+                $("#recuringFrame").attr("src", "error_internet.html");
+                $("#committesFrame").attr("src", "error_internet.html");
+                //$('iframe.announ').hide();
+            });
+
+             
         });
 
         
@@ -87,6 +100,5 @@
         
         </div>
   </div>
-    <script src="cordova.js"></script>
 </body>
 </html>

@@ -9,11 +9,13 @@
     <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="cordova.js"></script>
     <link href="themes/collabo.css" rel="stylesheet" media="all" />
     <script type="text/javascript">
         $(document).ready(function () {
             var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
             $.get(urlString, function (response) {
+                checkConnection();
                 $('iframe.announ').attr('src', 'https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago');
             }).error(function () {
                 $('iframe.announ').hide();
@@ -30,6 +32,21 @@
             
         });
 
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN] = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI] = 'WiFi connection';
+            states[Connection.CELL_2G] = 'Cell 2G connection';
+            states[Connection.CELL_3G] = 'Cell 3G connection';
+            states[Connection.CELL_4G] = 'Cell 4G connection';
+            states[Connection.CELL] = 'Cell generic connection';
+            states[Connection.NONE] = 'No network connection';
+
+            alert('Connection type: ' + states[networkState]);
+        }
 
         
 
@@ -71,26 +88,7 @@
         </div>
             </div>
     </div>
-    <script src="cordova.js"></script>
-    <script type="text/javascript">
-        function checkConnection() {
-            var networkState = navigator.connection.type;
-
-            var states = {};
-            states[Connection.UNKNOWN] = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI] = 'WiFi connection';
-            states[Connection.CELL_2G] = 'Cell 2G connection';
-            states[Connection.CELL_3G] = 'Cell 3G connection';
-            states[Connection.CELL_4G] = 'Cell 4G connection';
-            states[Connection.CELL] = 'Cell generic connection';
-            states[Connection.NONE] = 'No network connection';
-
-            alert('Connection type: ' + states[networkState]);
-        }
-
-        checkConnection();
-
-    </script>
+    
+    
 </body>
 </html>
