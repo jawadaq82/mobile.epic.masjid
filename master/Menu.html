@@ -7,9 +7,9 @@
     <link href="themes/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
     <link href="themes/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
     <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
-    <script src="Scripts/jquery.min.js"></script>
-    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
-    <script src="cordova.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
     <link href="themes/collabo.css" rel="stylesheet" media="all" />
     <script type="text/javascript">
         $(document).ready(function () {
@@ -21,16 +21,23 @@
             }).error(function () {
                 $('iframe.announ').hide();
             });
-        
+
+            $("a").click(function (event) {
+                event.preventDefault();
+                var link = $(this).attr('href');
+                if (link != null || link != '#') { window.open(link, '_blank', 'location=yes'); }
+                return false;
+            });
+
 
             $('.link').click(function () {
                 $.get(urlString, function (response) {
                     //alert("Hekki");
                 }).error(function () {
-                        window.open( "error_internet.html","_blank");
-                });  
+                    window.open("error_internet.html", "_blank");
+                });
             });
-            
+
         });
 
         function checkConnection() {
