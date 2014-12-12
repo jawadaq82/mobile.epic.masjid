@@ -37,15 +37,7 @@
                 });
             });
 
-            setTimeout('myfunction123',2000);
         });
-
-        function myfunction123() {
-            var iframe = $('iframe.announ');
-            iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
-            iframe.document.write('<script src="//code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>');
-            iframe.document.write('<script type="text/javascript">$("a").click(function (event) {event.preventDefault();var link = $(this).attr('href');if (link != null || link != '#') { window.open(link, '_blank', 'location=yes'); }return false;});</script>');
-        }
 
         function checkConnection() {
             var networkState = navigator.connection.type;
