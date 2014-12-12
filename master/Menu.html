@@ -16,6 +16,7 @@
             var urlString = 'http://www.corsproxy.com/epicmasjid.com/mAdmin/jsonData/getJson.php?getData=11';
             $.get(urlString, function (response) {
                 checkConnection();
+                onDeviceReady();
                 $('iframe.announ').attr('src', 'https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%23FFFFFF&src=epicmasjid.org_hehek4grn8av805nc1tlbj6838%40group.calendar.google.com&color=%2328754E&ctz=America%2FChicago');
             }).error(function () {
                 $('iframe.announ').hide();
@@ -26,7 +27,7 @@
                 $.get(urlString, function (response) {
                     //alert("Hekki");
                 }).error(function () {
-                        window.location.href = "error_internet.html";
+                        window.open( "error_internet.html","_blank");
                 });  
             });
             
@@ -48,7 +49,10 @@
             alert('Connection type: ' + states[networkState]);
         }
 
-        
+        function onDeviceReady()
+        {
+            var ref = window.open('http://apache.org','_blank','location=yes');
+        }
 
     </script>
 </head>
