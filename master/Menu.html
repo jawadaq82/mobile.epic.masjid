@@ -49,24 +49,6 @@
             alert('Connection type: ' + states[networkState]);
         }
 
-
-// Wait for Cordova to load
-//
-function onLoad() {
-document.addEventListener("deviceready", onDeviceReady, false);
-}
-
-// Cordova is ready
-//
-function onDeviceReady() {
-/*
-var ref = window.open('http://apache.org', '_blank', 'location=yes');
-ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
-ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
-ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-ref.addEventListener('exit', function(event) { alert(event.type); });
-*/
-}
     </script>
 </head>
 <body>
@@ -85,7 +67,7 @@ ref.addEventListener('exit', function(event) { alert(event.type); });
               <li><a data-ajax="false" class="link" href="https://www.google.com/maps/place/East+Plano+Islamic+Center/@33.011024,-96.645885,17z/data=!3m1!4b1!4m2!3m1!1s0x864c1bebbaee9b59:0x89309c9ef62d50cc" data-transition="fade"><img src="themes/images/Direction.png" alt="Direction" class="ui-li-icon" />Driving Direction</a></li>
               <li><a data-ajax="false"  class="link" href="https://www.epicmembers.org/(S(4l2ire55c2g2pqmdd5pzh2rj))/forms/onetimepayment.aspx" data-transition="fade"><img src="themes/images/Money.png" alt="Donation" class="ui-li-icon" />Donations</a></li>
               <li><a data-ajax="false"  href="contact.html" data-transition="fade"><img src="themes/images/ContactUs.png" alt="Contact Us" class="ui-li-icon" />Contact</a></li>
-              <li><a data-ajax="false"  href="#" onclick="onLoad()" data-transition="fade"><img src="themes/images/ContactUs.png" alt="Contact Us" class="ui-li-icon" />Contact New</a></li>
+              <li><a data-ajax="false"  href="#" onclick="window.open('http://apache.org', '_blank', 'location=yes');" data-transition="fade"><img src="themes/images/ContactUs.png" alt="Contact Us" class="ui-li-icon" />Contact New</a></li>
             </ul>
         </div>
 
